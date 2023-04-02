@@ -1,3 +1,5 @@
 {
-    "cSpell.words": ["ecommerce"]
+    "cSpell.words": ["ecommerce"],
+    "i18n-ally.localesPaths": ["lang"],
+    "php.version": "8.2.4"
 }
