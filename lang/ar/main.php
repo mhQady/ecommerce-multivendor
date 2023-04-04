@@ -8,4 +8,5 @@ return [
     'email' => 'البريد الإلكتروني',
     'name' => 'الاسم',
     'password_confirmation' => 'تأكيد كلمة المرور',
+    'remember_me' => 'تذكرني',
 ];

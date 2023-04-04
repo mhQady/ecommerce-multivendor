@@ -12,4 +12,5 @@ Route::middleware('guest:admin')->group(function () {
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/', HomeController::class)->name('home');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });

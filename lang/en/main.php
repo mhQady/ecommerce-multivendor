@@ -8,4 +8,5 @@ return [
     'email' => 'Email',
     'name' => 'Name',
     'password_confirmation' => 'Password Confirmation',
+    'remember_me' => 'Remember Me',
 ];

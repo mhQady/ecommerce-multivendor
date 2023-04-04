@@ -77,17 +77,27 @@
                     <form action="{{route('admin.login')}}" method="POST" role="form" class="text-start">
                         @csrf
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="@lang('main.email')"
-                                aria-label="Email" name="email">
+                            <input type="email" class="form-control" value="{{old('email')}}"
+                                placeholder="@lang('main.email')" aria-label="Email" name="email">
+                            @error('email')
+                            <small class="text text-danger">{{$message}}</small>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" placeholder="@lang('main.password')"
                                 aria-label="Password" name="password">
+                            @error('password')
+                            <small class="text text-danger">{{$message}}</small>
+                            @enderror
                         </div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="rememberMe" name="remember_me">
-                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                            <input class="form-check-input" type="checkbox" id="rememberMe" name="remember_me"
+                                @checked(old('remember_me'))>
+                            <label class="form-check-label" for="rememberMe">@lang('main.remember_me')</label>
                         </div>
+                        @error('remember_me')
+                        <small class="text text-danger">{{$message}}</small>
+                        @enderror
                         <div class="text-center">
                             <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">
                                 @lang('main.login')</button>
