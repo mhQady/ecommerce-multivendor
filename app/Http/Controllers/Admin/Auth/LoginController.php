@@ -17,13 +17,12 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-
         if (
             !Auth::guard('admin')
                 ->attempt(['email' => $request->email, 'password' => $request->password], $request->has('remember_me'))
         ) {
             throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
+                'email' => [__('validation.wrong_credentials')],
             ]);
         }
 

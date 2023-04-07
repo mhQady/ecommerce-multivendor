@@ -167,6 +167,28 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-body p-0" id="lanChanger" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="lanChanger">
+                        <li class="mb-2">
+                            <a class="dropdown-item border-radius-md" href="{{route('switchLang','en')}}">
+                                <h6 class="text-sm font-weight-normal mb-1">
+                                    @lang('main.en')
+                                </h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item border-radius-md" href="{{route('switchLang','ar')}}">
+                                <h6 class="text-sm font-weight-normal mb-1">
+                                    @lang('main.ar')
+                                </h6>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

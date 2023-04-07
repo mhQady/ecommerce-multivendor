@@ -9,4 +9,6 @@ return [
     'name' => 'الاسم',
     'password_confirmation' => 'تأكيد كلمة المرور',
     'remember_me' => 'تذكرني',
+    'en' => 'English',
+    'ar' => 'العربية',
 ];

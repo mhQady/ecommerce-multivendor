@@ -9,4 +9,6 @@ return [
     'name' => 'Name',
     'password_confirmation' => 'Password Confirmation',
     'remember_me' => 'Remember Me',
+    'en' => 'English',
+    'ar' => 'العربية',
 ];
