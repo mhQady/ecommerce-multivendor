@@ -1,15 +1,13 @@
 @extends('admin.layout.app-headless')
 @section('content')
 <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-    style="background-image: url('{{asset('dashboard/img/curved-images/curved9.jpg')}}');">
+    style="background-image: url('{{asset('dashboard/img/curved-images/curved14.jpg')}}');">
     <span class="mask bg-gradient-dark opacity-6"></span>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-5 text-center mx-auto">
-                <h1 class="text-white mb-2 mt-5">Welcome Admin!</h1>
-                <p class="text-lead text-white">Use these awesome forms to login or create new account in
-                    your
-                    project for free.</p>
+                <h1 class="text-white mb-2 mt-5">Welcome Vendor</h1>
+                <p class="text-lead text-white">Register Now</p>
             </div>
         </div>
     </div>
@@ -19,9 +17,9 @@
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
             <div class="card z-index-0">
                 <div class="card-header text-center pt-4">
-                    <h5>@lang('main.login')</h5>
+                    <h5>@lang('main.register')</h5>
                 </div>
-                <div class="row px-xl-5 px-sm-4 px-3">
+                {{-- <div class="row px-xl-5 px-sm-4 px-3">
                     <div class="col-3 ms-auto px-1">
                         <a class="btn btn-outline-light w-100" href="javascript:;">
                             <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
@@ -72,14 +70,28 @@
                             </svg>
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="card-body">
-                    <form action="{{route('admin.login')}}" method="POST" role="form" class="text-start">
+                    <form action="{{route('vendor.register')}}" method="POST" role="form" class="text-start">
                         @csrf
+                        <div class="mb-3">
+                            <input type="text" class="form-control" value="{{old('name')}}"
+                                placeholder="@lang('main.name')" aria-label="name" name="name">
+                            @error('name')
+                            <small class="text text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" value="{{old('email')}}"
                                 placeholder="@lang('main.email')" aria-label="Email" name="email">
                             @error('email')
+                            <small class="text text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" value="{{old('phone')}}"
+                                placeholder="@lang('main.phone')" aria-label="phone" name="phone">
+                            @error('phone')
                             <small class="text text-danger">{{$message}}</small>
                             @enderror
                         </div>
@@ -90,18 +102,21 @@
                             <small class="text text-danger">{{$message}}</small>
                             @enderror
                         </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="rememberMe" name="remember_me"
-                                @checked(old('remember_me'))>
-                            <label class="form-check-label" for="rememberMe">@lang('main.remember_me')</label>
+                        <div class="mb-3">
+                            <input type="password" class="form-control"
+                                placeholder="@lang('main.password_confirmation')" aria-label="Password"
+                                name="password_confirmation">
+                            @error('password_confirmation')
+                            <small class="text text-danger">{{$message}}</small>
+                            @enderror
                         </div>
-                        @error('remember_me')
-                        <small class="text text-danger">{{$message}}</small>
-                        @enderror
                         <div class="text-center">
                             <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">
-                                @lang('main.login')</button>
+                                @lang('main.register')</button>
                         </div>
+                        <p class="text-sm mt-3 mb-0">@lang('main.already_have_account') <a
+                                href="{{route('vendor.login.index')}}"
+                                class="text-dark font-weight-bolder">@lang('main.login')</a></p>
                     </form>
                 </div>
             </div>

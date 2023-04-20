@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" dir="{{ session('dir') }}">
 
-    @include('admin.layout.head')
+    @include('vendor.layout.head')
 
     <body class="g-sidenav-show  bg-gray-100 {{ session('dir') }}">
 
-        @include('admin.layout.aside')
+        @include('vendor.layout.aside')
 
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-            @include('admin.layout.navbar')
+            @include('vendor.layout.navbar')
             <div class="container-fluid py-4">
                 @yield('content')
 
-                @include('admin.layout.footer')
+                @include('vendor.layout.footer')
             </div>
         </main>
 
-        @include('admin.layout.fixed-plugin')
+        @include('vendor.layout.fixed-plugin')
 
-        @include('admin.layout.script')
+        @include('vendor.layout.script')
     </body>
 
 </html>

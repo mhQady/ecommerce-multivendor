@@ -51,11 +51,11 @@
                     <a href="javascript:;" class="nav-link text-body font-weight-bold px-0" id="profileDropDownButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">{{auth()->guard('admin')->user()->name}}</span>
+                        <span class="d-sm-inline d-none">{{auth()->guard('vendor')->user()->name}}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end px-2 py-3 mt-0" aria-labelledby="profileDropDownButton">
                         <li>
-                            <a class="dropdown-item border-radius-md" href="{{route('admin.logout')}}">
+                            <a class="dropdown-item border-radius-md" href="{{route('vendor.logout')}}">
                                 <div class="d-flex py-1">
                                     <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
                                         <i class="fa-solid fa-right-from-bracket"></i>
