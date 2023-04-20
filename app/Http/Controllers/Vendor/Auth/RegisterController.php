@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Vendor\Auth;
 use App\Models\Vendor;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Vendor\RegisterRequest;
+use App\Http\Requests\Vendor\Auth\RegisterRequest;
 
 class RegisterController extends Controller
 {

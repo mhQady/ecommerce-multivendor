@@ -17,7 +17,6 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-        return $request;
         if (
             !Auth::guard('vendor')
                 ->attempt(['email' => $request->email, 'password' => $request->password], $request->has('remember_me'))
