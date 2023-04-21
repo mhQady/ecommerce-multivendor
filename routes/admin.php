@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 
 
@@ -13,4 +14,6 @@ Route::middleware('guest:admin')->group(function () {
 Route::middleware('auth:admin')->group(function () {
     Route::get('/', HomeController::class)->name('home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::resource('/vendors', VendorController::class);
 });

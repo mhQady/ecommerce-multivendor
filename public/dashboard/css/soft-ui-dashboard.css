@@ -20922,7 +20922,7 @@ fieldset:disabled .btn {
 }
 
 .card .card-body {
-    font-family: "Open Sans";
+    font-family: var(--bs-font-tajawal);
     padding: 1.5rem;
 }
 

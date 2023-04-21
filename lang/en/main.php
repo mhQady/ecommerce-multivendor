@@ -15,4 +15,10 @@ return [
     'en' => 'English',
     'ar' => 'العربية',
     'or' => 'OR',
+    'info' => 'Info',
+    'account_not_approved' => 'Your account is not approved yet. We will contact you as soon as possible.',
+    'vendors' => 'Vendors',
+    'is_approved' => 'Is Approved',
+    'is_active' => 'Is Active',
+    'created_at' => 'Created At',
 ];
