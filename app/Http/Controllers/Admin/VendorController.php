@@ -60,6 +60,6 @@ class VendorController extends Controller
      */
     public function destroy(Vendor $vendor)
     {
-        //
+        return $vendor;
     }
 }

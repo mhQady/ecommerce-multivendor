@@ -1,5 +1,6 @@
 {
     "cSpell.words": ["ecommerce"],
     "i18n-ally.localesPaths": ["lang"],
-    "php.version": "8.2.4"
+    "php.version": "8.2.4",
+    "i18n-ally.keystyle": "nested"
 }

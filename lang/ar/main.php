@@ -20,4 +20,29 @@ return [
     'vendors' => 'الموردين',
     'is_approved' => 'تم الموافقة',
     'is_active' => 'مُفَعل',
+    'approved' => 'موافقة',
+    'not_approved' => 'لم يتم الموافقة',
+    'active' => 'مُفَعل',
+    'suspended' => 'موقوف',
+    'are_you_sure' => 'هل انت متأكد؟',
+    'close' => 'إغلاق',
+    'created' => [
+        'vendor' => 'تم انشاء المورد بنجاح',
+    ],
+    'create' => [
+        'vendor' => 'انشاء مورد',
+    ],
+    'updated' => [
+        'vendor' => 'تم تحديث المورد بنجاح',
+    ],
+    'update' => [
+        'vendor' => 'تحديث المورد',
+    ],
+    'deleted' => [
+        'vendor' => 'تم حذف المورد بنجاح',
+    ],
+    'delete' => [
+        0 => 'حذف',
+        'vendor' => 'حذف المورد',
+    ]
 ];

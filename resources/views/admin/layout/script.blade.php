@@ -2,7 +2,7 @@
 <script src="{{asset('dashboard/js/core/bootstrap.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/perfect-scrollbar.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/smooth-scrollbar.min.js')}}"></script>
-<!-- Kanban scripts -->
+
 <script src="{{asset('dashboard/js/plugins/dragula/dragula.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/jkanban/jkanban.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/chartjs.min.js')}}"></script>
@@ -303,5 +303,6 @@
     }
 </script>
 
-@stack('script')
 <script src="{{asset('dashboard/js/soft-ui-dashboard.min.js?v=1.1.1')}}"></script>
+
+@stack('script')

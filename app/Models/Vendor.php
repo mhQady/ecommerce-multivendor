@@ -14,6 +14,7 @@ class Vendor extends Authenticatable
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $perPage = 25;
 
     public function store(): HasOne
     {

@@ -18,7 +18,10 @@
 
         @include('admin.layout.fixed-plugin')
 
+        @include('components.delete-modal')
+
         @include('admin.layout.script')
+
     </body>
 
 </html>

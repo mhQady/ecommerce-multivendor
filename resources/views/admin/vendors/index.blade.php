@@ -69,14 +69,18 @@
                             @forelse($vendors as $vendor)
                             <tr>
                                 <td>
-                                    <h6 class="ms-3 my-auto">{{$vendor->name}}</h6>
+                                    <h6>{{$vendor->name}}</h6>
                                 </td>
-                                <td class="text-sm">Clothing</td>
-                                <td class="text-sm">$1,321</td>
-                                <td class="text-sm">243598234</td>
-                                <td class="text-sm">0</td>
-                                <td>
-                                    <span class="badge badge-danger badge-sm">Out of Stock</span>
+                                <td class="text-sm">{{$vendor->email}}</td>
+                                <td class="text-sm">{{$vendor->phone}}</td>
+                                <td class="text-sm">
+                                    {!! \App\Enums\Vendor\VendorApproved::badge($vendor->is_approved)!!}
+                                </td>
+                                <td class="text-sm">
+                                    {!! \App\Enums\Vendor\VendorActive::badge($vendor->is_active)!!}
+                                </td>
+                                <td class="text-sm">
+                                    {{$vendor->created_at->format('Y-m-d')}}
                                 </td>
                                 <td class="text-sm">
                                     <a href="javascript:;" data-bs-toggle="tooltip"
@@ -88,8 +92,9 @@
                                         <i class="fas fa-user-edit text-secondary"></i>
                                     </a>
                                     <a href="javascript:;" data-bs-toggle="tooltip"
-                                        data-bs-original-title="Delete product">
-                                        <i class="fas fa-trash text-secondary"></i>
+                                        onclick="deleteRecord('{{ route('admin.vendors.destroy', $vendor->id) }}')"
+                                        data-bs-original-title="@lang('main.delete.vendor')">
+                                        <i class="fas fa-trash text-danger"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -98,6 +103,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="card-footer">
+                {{$vendors->links()}}
             </div>
         </div>
     </div>
