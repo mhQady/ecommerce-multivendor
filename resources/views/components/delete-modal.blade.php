@@ -32,8 +32,6 @@
         deleteForm.action = url;
 
         new bootstrap.Modal(deleteModalEle).show();
-
-        console.log(url);
     }
 
     deleteModalEle.addEventListener('hidden.bs.modal', function (event) {

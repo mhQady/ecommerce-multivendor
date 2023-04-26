@@ -624,10 +624,10 @@
                         </li>
                     </ul>
                 </div>
-            </li>
+            </li>  --}}
             <li class="nav-item">
                 <hr class="horizontal dark" />
-                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">DOCS</h6>
+                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">@lang('main.general')</h6>
             </li>
             <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#basicExamples" class="nav-link " aria-controls="basicExamples"
@@ -752,7 +752,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#componentsExamples" class="nav-link "
                     aria-controls="componentsExamples" role="button" aria-expanded="false">
                     <div

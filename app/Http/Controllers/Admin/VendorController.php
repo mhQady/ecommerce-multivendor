@@ -60,6 +60,10 @@ class VendorController extends Controller
      */
     public function destroy(Vendor $vendor)
     {
-        return $vendor;
+        $vendor->delete();
+
+        toast(__('main.deleted.vendor'), 'success');
+
+        return back();
     }
 }

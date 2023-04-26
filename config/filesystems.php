@@ -43,7 +43,12 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
-
+        'mediaLibrary' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/media-library'),
+            'url' => env('APP_URL') . '/storage/media-library',
+            'visibility' => 'public',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

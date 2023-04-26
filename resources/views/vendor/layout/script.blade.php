@@ -1,3 +1,6 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{asset('dashboard/js/core/popper.min.js')}}"></script>
 <script src="{{asset('dashboard/js/core/bootstrap.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/perfect-scrollbar.min.js')}}"></script>
@@ -302,7 +305,7 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+
 <script src="{{asset('dashboard/js/soft-ui-dashboard.min.js?v=1.1.1')}}"></script>
+
+@stack('script')

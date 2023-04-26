@@ -35,9 +35,9 @@ class LoginController extends Controller
     {
         Auth::guard('vendor')->logout();
 
-        $request->session()->invalidate();
+        // $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+        // $request->session()->regenerateToken();
 
         return to_route('vendor.login.index');
     }

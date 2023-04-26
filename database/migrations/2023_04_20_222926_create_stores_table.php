@@ -13,10 +13,9 @@ return new class extends Migration {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->foreignId('vendor_id')->constrained('vendors')->onDelete('cascade');
-            $table->string('business_name')->nullable();
+            $table->string('business_name');
             $table->text('description')->nullable();
             $table->string('logo')->nullable();
-            $table->string('address')->nullable();
             $table->string('website')->nullable();
             $table->timestamps();
         });

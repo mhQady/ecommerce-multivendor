@@ -8,6 +8,8 @@
 <script src="{{asset('dashboard/js/plugins/chartjs.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/threejs.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/orbit-controls.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@include('sweetalert::alert')
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -293,7 +295,7 @@
       init();
     })();
 </script>
-<script>
+{{-- <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
       var options = {
@@ -301,7 +303,7 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
-</script>
+</script> --}}
 
 <script src="{{asset('dashboard/js/soft-ui-dashboard.min.js?v=1.1.1')}}"></script>
 

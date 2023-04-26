@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PermissionSeeder::class,
+            CountrySeeder::class,
+            CitySeeder::class,
             VendorSeeder::class,
         ]);
     }

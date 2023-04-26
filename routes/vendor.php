@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Vendor\HomeController;
+use App\Http\Controllers\Vendor\StoreController;
 use App\Http\Controllers\Vendor\Auth\LoginController;
 use App\Http\Controllers\Vendor\Auth\RegisterController;
 
@@ -14,6 +15,8 @@ Route::middleware('guest:vendor')->group(function () {
 });
 
 Route::middleware('auth:vendor')->group(function () {
-    Route::get('/', HomeController::class)->name('home');
+    Route::get('/home', HomeController::class)->name('home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::post('/stores/store', [StoreController::class, 'store'])->name('stores.store');
 });
