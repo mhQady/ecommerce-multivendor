@@ -64,4 +64,5 @@ return [
     'building' => 'Building',
     'flat' => 'Flat',
     'note' => 'Note',
+    'account_suspended' => 'Your account is suspended. Please contact us for more info.'
 ];

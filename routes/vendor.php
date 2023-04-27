@@ -14,7 +14,7 @@ Route::middleware('guest:vendor')->group(function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login');
 });
 
-Route::middleware('auth:vendor')->group(function () {
+Route::middleware(['auth:vendor', 'blocked'])->group(function () {
     Route::get('/home', HomeController::class)->name('home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

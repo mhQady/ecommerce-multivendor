@@ -16,8 +16,8 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('password');
-            $table->boolean('is_approved')->default(false);
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_approved')->default(false)->comment('0 - not approved, 1 - approved');
+            $table->boolean('is_active')->default(true)->comment('0 - suspended, 1 - active');
             $table->rememberToken();
             $table->timestamps();
         });

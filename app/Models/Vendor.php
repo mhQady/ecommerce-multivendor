@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Vendor\VendorActive;
 use App\Models\Store;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -31,6 +32,13 @@ class Vendor extends Authenticatable
     {
         return Attribute::make(
         set: fn($value) => Hash::make($value),
+        );
+    }
+
+    protected function isBlocked(): Attribute
+    {
+        return Attribute::make(
+        get: fn(mixed $value, array $attributes) => $attributes['is_active'] === VendorActive::SUSPENDED->value,
         );
     }
 }
