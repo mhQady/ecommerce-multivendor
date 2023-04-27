@@ -13,7 +13,7 @@
                             <span>Account</span>
                         </button> --}}
                         <button class="multisteps-form__progress-btn" type="button" title="Order Info">
-                            <span>Address</span>
+                            <span>@lang('main.address')</span>
                         </button>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                         <input class="multisteps-form__input form-control mb-3" type="text"
-                                            name="business_name" />
+                                            name="business_name" value="{{old('business_name')}}" />
 
 
                                         <label class="mt-3">@lang('main.description')</label>
@@ -54,7 +54,7 @@
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                         <textarea class="multisteps-form__input form-control" rows="5"
-                                            name="description"></textarea>
+                                            name="description">{{old('description')}}</textarea>
 
                                     </div>
                                 </div>
@@ -188,48 +188,53 @@
                                 <div class="row text-start">
                                     <div class="col-12 col-md-12  mt-3">
                                         <label>@lang('main.address')</label>
-                                        <input class="multisteps-form__input form-control" type="text" name="address" />
-                                        @error('address')
+                                        <input class="multisteps-form__input form-control" type="text"
+                                            name="address[address]" value="{{old('address.address')}}" />
+                                        @error('address.address')
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
 
-                                    <x-country-city-selector />
+                                    <x-country-city-selector country-input-name="address[country_id]"
+                                        city-input-name="address[city_id]" />
 
                                     <div class="col-12 col-md-6  mt-3">
                                         <label>@lang('main.region')</label>
-                                        <input class="multisteps-form__input form-control" type="text" name="region" />
-                                        @error('region')
+                                        <input class="multisteps-form__input form-control" type="text"
+                                            value="{{old('address.region')}}" name="address[region]" />
+                                        @error('address.region')
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="col-12 col-md-6  mt-3">
                                         <label>@lang('main.street')</label>
-                                        <input class="multisteps-form__input form-control" type="text" name="street" />
-                                        @error('street')
+                                        <input class="multisteps-form__input form-control" type="text"
+                                            name="address[street]" value="{{old('address.street')}}" />
+                                        @error('address.street')
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="col-12 col-md-6  mt-3">
                                         <label>@lang('main.building')</label>
                                         <input class="multisteps-form__input form-control" type="text"
-                                            name="building" />
-                                        @error('building')
+                                            name="address[building]" value="{{old('address.building')}}" />
+                                        @error('address.building')
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="col-12 col-md-6 mt-3">
                                         <label>@lang('main.flat')</label>
-                                        <input class="multisteps-form__input form-control" type="text" name="flat" />
-                                        @error('flat')
+                                        <input class="multisteps-form__input form-control" type="text"
+                                            name="address[flat]" value="{{old('address.flat')}}" />
+                                        @error('address.flat')
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="col-12 col-md-12">
                                         <label class="mt-3">@lang('main.note')</label>
                                         <textarea class="multisteps-form__input form-control" rows="5"
-                                            name="note"></textarea>
-                                        @error('note')
+                                            name="address[note]">{{old('address.note')}}</textarea>
+                                        @error('address.note')
                                         <small class="text text-danger">{{$message}}</small>
                                         @enderror
                                     </div>

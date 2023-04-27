@@ -30,13 +30,11 @@ class StoreController extends Controller
      */
     public function store(StoreStoreRequest $request)
     {
-        return $request;
-        $store = Store::create([
-            'vendor_id' => auth()->guard('vendor')->id(),
-            'business_name' => $request->business_name,
-        ]);
+        // return $request->validated();
+        $store = Store::create($request->validated());
 
-        $store->addMedia($request->file('logo'))->toMediaCollection('logo');
+        $store->address()->create($request->validated()['address']);
+        // $store->addMedia($request->file('logo'))->toMediaCollection('logo');
 
         return back();
     }

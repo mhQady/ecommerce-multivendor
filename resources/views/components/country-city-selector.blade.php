@@ -2,10 +2,12 @@
     <label>@lang('main.country')</label>
     <select class="form-control" name="{{$countryInputName}}" id="choices-country">
         @foreach($selectionCategories as $country)
-        <option value="{{$country->id}}">{{$country->name}}</option>
+        <option value="{{$country->id}}" @selected(old((string) $getErrorName($countryInputName))==$country->
+            id)>{{$country->name}}
+        </option>
         @endforeach
     </select>
-    @error('country_id')
+    @error((string) $getErrorName($countryInputName))
     <small class="text text-danger">{{$message}}</small>
     @enderror
 </div>
@@ -13,7 +15,7 @@
     <label>@lang('main.city')</label>
     <select class="form-control" name="{{$cityInputName}}" id="choices-city">
     </select>
-    @error('city_id')
+    @error((string) $getErrorName($cityInputName))
     <small class="text text-danger">{{$message}}</small>
     @enderror
 </div>
@@ -27,11 +29,16 @@
     shouldSort: false,
     searchPlaceholderValue: "@lang('main.type_to_search')",
     }
+
     const countries = document.getElementById('choices-country');
 
     new Choices(countries,choicesOptions);
 
     const cities = new Choices(document.getElementById('choices-city'), choicesOptions);
+
+    window.addEventListener('load', () => {
+        loadCities(countries.value);
+    });
 
     countries.addEventListener('change', (e,choice) => {
         loadCities(e.target.value)
@@ -56,8 +63,14 @@
     }
 
     function changeCitiesResponse(response) {
+        @if(old((string) $getErrorName($cityInputName)))
+        let oldCitySelectorVal = {{old((string) $getErrorName($cityInputName))}}
+        @else
+        let oldCitySelectorVal = response[0]['id']
+        @endif
+
         return  response.map((city) => {
-            return  { value: city.id, 'label': city.name, selected: true};
+            return  { value: city.id, 'label': city.name, selected: oldCitySelectorVal == city.id };
         })
     }
 </script>
