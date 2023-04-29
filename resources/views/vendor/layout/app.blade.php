@@ -18,6 +18,8 @@
 
         @include('vendor.layout.fixed-plugin')
 
+        @include('components.delete-modal')
+
         @include('vendor.layout.script')
     </body>
 

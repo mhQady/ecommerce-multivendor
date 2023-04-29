@@ -11,6 +11,8 @@
 <script src="{{asset('dashboard/js/plugins/chartjs.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/threejs.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/orbit-controls.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@include('sweetalert::alert')
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 

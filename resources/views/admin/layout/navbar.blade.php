@@ -176,14 +176,14 @@
                         <li class="mb-2">
                             <a class="dropdown-item border-radius-md" href="{{route('switchLang','en')}}">
                                 <h6 class="text-sm font-weight-normal mb-1">
-                                    @lang('main.en')
+                                    @lang('main.en.0)
                                 </h6>
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item border-radius-md" href="{{route('switchLang','ar')}}">
                                 <h6 class="text-sm font-weight-normal mb-1">
-                                    @lang('main.ar')
+                                    @lang('main.ar.0')
                                 </h6>
                             </a>
                         </li>

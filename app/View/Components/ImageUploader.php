@@ -45,4 +45,8 @@ class ImageUploader extends Component
         return $this->storeAsFile === 'false' ? 'false' : 'true';
     }
 
+    public function uploadImage()
+    {
+        return '123';
+    }
 }

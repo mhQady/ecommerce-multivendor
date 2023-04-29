@@ -10,17 +10,31 @@
 <script>
     const pondElement = document.querySelector('input.pond-input[type="file"]');
 
-            const pond = FilePond.create(pondElement, {
-                allowMultiple: true,
-                allowReorder: true,
-                credits: false,
-                required: {{ $isRequired }},
-                disabled: {{ $isDisabled }},
-                storeAsFile: {{ $isStoredAsFile }},
-            });
+    let processConfig = {
+        process: {
+            url: '{{ route("ajax.uploadImage") }}',
+            withCredentials: true,
+            headers:{
+            'X-CSRF-TOKEN':'{{ csrf_token() }}',
+            },
+        }
+    }
 
-            window.pond = pond;
+    const pond = FilePond.create(pondElement, {
+        allowMultiple: true,
+        allowReorder: true,
+        credits: false,
+        required: {{ $isRequired }},
+        disabled: {{ $isDisabled }},
+        storeAsFile: {{ $isStoredAsFile }},
+        server: {
+            url:'/',
+            process: processConfig
+        },
+    });
 
-            console.log(pond.status)
+    window.pond = pond;
+
+    console.log(pond.status)
 </script>
 @endpush

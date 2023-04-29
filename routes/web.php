@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\CountryController;
-use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
+use App\View\Components\ImageUploader;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\Admin\CountryController;
 
 
 Route::get('/', function () {
@@ -18,4 +19,6 @@ Route::get('/lang/{lang}', LanguageController::class)->name('switchLang');
 
 Route::prefix('ajax')->name('ajax.')->group(function () {
     Route::post('countries/related-cities', [CountryController::class, 'relatedCities'])->name('relatedCities');
+
+    Route::post('upload-image', [ImageUploader::class, 'uploadImage'])->name('uploadImage');
 });

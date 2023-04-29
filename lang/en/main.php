@@ -12,12 +12,13 @@ return [
     'name' => 'Name',
     'password_confirmation' => 'Password Confirmation',
     'remember_me' => 'Remember Me',
-    'en' => 'English',
-    'ar' => 'العربية',
     'or' => 'OR',
     'info' => 'Info',
     'account_not_approved' => 'Your account is not approved yet. We will contact you as soon as possible.',
     'vendors' => 'Vendors',
+    'vendor' => 'Vendor',
+    'brands' => 'Brands',
+    'products' => 'Products',
     'is_approved' => 'Is Approved',
     'is_active' => 'Is Active',
     'created_at' => 'Created At',
@@ -27,24 +28,37 @@ return [
     'suspended' => 'Suspended',
     'are_you_sure' => 'Are you sure?',
     'close' => 'Close',
+    'save' => 'Save',
     'created' => [
         'vendor' => 'Vendor has been created successfully',
+        'brand' => 'Brand has been created successfully',
+        'product' => 'Product has been created successfully',
     ],
     'create' => [
         'vendor' => 'Create Vendor',
+        'brand' => 'Create Brand',
+        'product' => 'Create Product',
     ],
     'updated' => [
         'vendor' => 'Vendor has been updated successfully',
+        'brand' => 'Brand has been updated successfully',
+        'product' => 'Product has been updated successfully',
     ],
     'update' => [
         'vendor' => 'Update Vendor',
+        'brand' => 'Update Brand',
+        'product' => 'Update Product',
     ],
     'deleted' => [
         'vendor' => 'Vendor has been deleted successfully',
+        'brand' => 'Brand has been deleted successfully',
+        'product' => 'Product has been deleted successfully',
     ],
     'delete' => [
         0 => 'Delete',
         'vendor' => 'Delete Vendor',
+        'brand' => 'Delete Brand',
+        'product' => 'Delete Product',
     ],
     'add_store_info' => 'Add Store Info',
     'business_name' => 'Business Name',
@@ -64,5 +78,13 @@ return [
     'building' => 'Building',
     'flat' => 'Flat',
     'note' => 'Note',
-    'account_suspended' => 'Your account is suspended. Please contact us for more info.'
+    'account_suspended' => 'Your account is suspended. Please contact us for more info.',
+    'en' => [
+        0 => 'English',
+        'name' => 'Name EN'
+    ],
+    'ar' => [
+        0 => 'العربية',
+        'name' => 'Name AR'
+    ],
 ];
