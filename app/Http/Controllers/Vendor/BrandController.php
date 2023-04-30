@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\SQL\BrandRepository;
 use App\Http\Requests\Vendor\BrandRequest;
 use App\Repositories\Contracts\BrandContract;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BrandController extends Controller
 {
@@ -35,7 +36,17 @@ class BrandController extends Controller
      */
     public function store(BrandRequest $request)
     {
-        return $request;
+        $brand = Brand::create($request->validated());
+
+        $media = Media::find($request->image);
+
+        $brand->addMedia($media->getPath())->toMediaCollection('main');
+
+        $media->delete();
+
+        toast(__('main.created.brand'), 'success');
+
+        return to_route('vendor.brands.index');
     }
 
     /**

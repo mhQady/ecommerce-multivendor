@@ -2,5 +2,6 @@
     "cSpell.words": ["doesnt", "ecommerce", "nbsp"],
     "i18n-ally.localesPaths": ["lang"],
     "php.version": "8.2.4",
-    "i18n-ally.keystyle": "nested"
+    "i18n-ally.keystyle": "nested",
+    "dotenv.enableAutocloaking": false
 }

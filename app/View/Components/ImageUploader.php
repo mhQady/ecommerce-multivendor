@@ -2,9 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\TempUploader;
 use Closure;
-use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ImageUploader extends Component
 {
@@ -45,8 +48,8 @@ class ImageUploader extends Component
         return $this->storeAsFile === 'false' ? 'false' : 'true';
     }
 
-    public function uploadImage()
+    public function uploadImage(Request $request)
     {
-        return '123';
+        return TempUploader::uploadImage($request, $this->name);
     }
 }

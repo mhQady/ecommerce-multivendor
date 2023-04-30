@@ -22,7 +22,8 @@ class BrandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'image' => 'nullable|exists:media,id',
+            'name.*' => 'required|string|max:255',
         ];
     }
 }

@@ -55,6 +55,7 @@ class GeneratePermissions
             'cartfeature',
             'compare',
             'favorite',
+            'tempuploader',
         ];
     }
 }
