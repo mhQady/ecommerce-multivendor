@@ -26,8 +26,16 @@
                             @forelse($brands as $brand)
                             <tr>
                                 <td>
-                                    <h6>{{$brand->name}}</h6>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="form-check my-auto">
+                                            <input class="form-check-input" type="checkbox" id="customCheck1"
+                                                checked="">
+                                        </div>
+                                        <img class="avatar" src="{{$brand->image('thumb')}}" alt="{{$brand->name}}">
+                                        <h6 class="mb-0">{{$brand->name}}</h6>
+                                    </div>
                                 </td>
+
                                 <td class="text-sm">
                                     {{$brand->created_at->format('Y-m-d')}}
                                 </td>

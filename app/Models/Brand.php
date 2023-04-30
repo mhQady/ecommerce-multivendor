@@ -6,6 +6,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -24,5 +25,10 @@ class Brand extends Model implements HasMedia
                 $this->addMediaConversion('thumb')
                     ->width(500);
             });
+    }
+
+    public function image($type = null): string
+    {
+        return $this->getFirstMediaUrl('main', $type) ? $this->getFirstMediaUrl('main', $type) : asset('dashboard/img/defaults/brand.svg');
     }
 }

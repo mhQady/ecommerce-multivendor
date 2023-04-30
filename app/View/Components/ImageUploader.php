@@ -20,6 +20,7 @@ class ImageUploader extends Component
         string $required = 'false',
         string $disabled = 'false',
         string $storeAsFile = 'false',
+        public string $maxFiles = 'null',
     ) {
         $this->required = $required;
         $this->disabled = $disabled;

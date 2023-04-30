@@ -30,7 +30,7 @@
         required: {{ $isRequired }},
         disabled: {{ $isDisabled }},
         storeAsFile: {{ $isStoredAsFile }},
-        maxFiles: 1
+        maxFiles: {{ $maxFiles }},
     };
 
     if( !{{ $isStoredAsFile }} ){
