@@ -77,4 +77,9 @@ class ImageUploader extends Component
     {
         return TempUploader::uploadImage(name: $this->name);
     }
+
+    public function deleteImage()
+    {
+        return TempUploader::deleteImage();
+    }
 }

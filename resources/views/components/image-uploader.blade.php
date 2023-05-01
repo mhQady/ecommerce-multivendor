@@ -18,10 +18,21 @@
             process: {
                 url: '/ajax/upload-image',
                 withCredentials: true,
-                headers:{
-                'X-CSRF-TOKEN':'{{ csrf_token() }}',
-                }
+                headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}'}
             },
+            remove: (source, load, error) => {
+                console.log(source, 'source');
+                $.ajax({
+                    method:'POST',
+                    url: "{{ route('ajax.deleteImage') }}",
+                    headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}' },
+                    data: {image: source},
+                    success: function (response) {
+                        console.log(response);
+                        load();
+                    }
+                });
+            }
     }
 
     let pondConfig = {

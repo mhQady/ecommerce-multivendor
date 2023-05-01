@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -19,8 +20,6 @@ class TempUploader extends Model implements HasMedia
 
     public static function uploadImage(string $name = 'image', string $collectionName = 'main')
     {
-        // dd(request()->all());
-
         if (request()->has('model_type') && request()->has('model_id')) {
             $class = '\App\Models\\' . request()->model_type;
             $id = request()->model_id;
@@ -30,11 +29,14 @@ class TempUploader extends Model implements HasMedia
             $model = self::create(['session_id' => session()->getId()]);
         }
 
-        $media = $model->addMedia(request()->file($name))->toMediaCollection($collectionName);
+        $file = request()->file($name);
+
+        $media = $model->addMedia($file)->usingFileName($file->hashName())->toMediaCollection($collectionName);
 
         return $media->id;
     }
 
+    // used only when store image as file
     public static function reAssignMedia(Model $model, string $mediaId = null, string $collectionName = 'main')
     {
         if (is_null($mediaId))
@@ -46,4 +48,11 @@ class TempUploader extends Model implements HasMedia
 
         $media->delete();
     }
+
+    public static function deleteImage()
+    {
+        $media = Media::where('file_name', Str::afterLast(request()->image, '/'))->first()->delete();
+        return response()->json('success', 200);
+    }
+
 }
