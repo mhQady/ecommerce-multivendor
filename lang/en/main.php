@@ -53,6 +53,7 @@ return [
         'vendor' => 'Vendor has been deleted successfully',
         'brand' => 'Brand has been deleted successfully',
         'product' => 'Product has been deleted successfully',
+        'image' => 'Image has been deleted successfully',
     ],
     'delete' => [
         0 => 'Delete',
@@ -60,6 +61,7 @@ return [
         'brand' => 'Delete Brand',
         'product' => 'Delete Product',
     ],
+    'error_happened' => 'Error Happened, Please try again later.',
     'add_store_info' => 'Add Store Info',
     'business_name' => 'Business Name',
     'description' => 'Description',

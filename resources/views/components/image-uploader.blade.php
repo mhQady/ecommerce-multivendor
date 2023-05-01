@@ -11,6 +11,7 @@
 <script src="{{asset('dashboard/js/plugins/filepond/filepond.min.js')}}"></script>
 <script>
     const pondElement = document.querySelector('input.pond-input[type="file"]');
+
     FilePond.registerPlugin(FilePondPluginImagePreview);
 
     let serverConfig ={
@@ -28,8 +29,17 @@
                     headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}' },
                     data: {image: source},
                     success: function (response) {
-                        console.log(response);
+                        toast.fire({
+                        icon: 'success',
+                        title: response.message
+                        });
                         load();
+                    },
+                    error: function (error) {
+                        toast.fire({
+                        icon: 'error',
+                        title: error.responseJSON.message
+                        });
                     }
                 });
             }

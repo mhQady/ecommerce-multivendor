@@ -8,8 +8,7 @@
 <script src="{{asset('dashboard/js/plugins/chartjs.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/threejs.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/orbit-controls.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@include('sweetalert::alert')
+
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -304,7 +303,21 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script> --}}
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const toast = Swal.mixin({
+        toast: true,
+        position: "{{ app()->getLocale()=='ar'?'top-start':'top-end' }}",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+</script>
+@include('sweetalert::alert')
 <script src="{{asset('dashboard/js/soft-ui-dashboard.min.js?v=1.1.1')}}"></script>
 
 @stack('script')

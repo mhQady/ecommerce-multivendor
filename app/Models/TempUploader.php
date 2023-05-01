@@ -36,7 +36,7 @@ class TempUploader extends Model implements HasMedia
         return $media->id;
     }
 
-    // used only when store image as file
+    // used only when pre upload image before creating model
     public static function reAssignMedia(Model $model, string $mediaId = null, string $collectionName = 'main')
     {
         if (is_null($mediaId))
@@ -52,7 +52,11 @@ class TempUploader extends Model implements HasMedia
     public static function deleteImage()
     {
         $media = Media::where('file_name', Str::afterLast(request()->image, '/'))->first()->delete();
-        return response()->json('success', 200);
+
+        if ($media)
+            return response()->json(['message' => __('main.deleted.image'), 'media' => $media], 200);
+
+        return response()->json(['message' => __('main.error_happened'), 'media' => $media], 500);
     }
 
 }
