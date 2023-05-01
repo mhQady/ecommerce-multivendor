@@ -61,6 +61,7 @@ return [
         'brand' => 'Delete Brand',
         'product' => 'Delete Product',
     ],
+    'image_uploaded' => 'Image has been uploaded successfully',
     'error_happened' => 'Error Happened, Please try again later.',
     'add_store_info' => 'Add Store Info',
     'business_name' => 'Business Name',

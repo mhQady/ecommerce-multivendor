@@ -79,18 +79,16 @@ abstract class BaseRepository implements BaseContract
         return $query->findOrFail($id);
     }
 
+    public function create(array $attributes = [])
+    {
+        $this->model->create($attributes);
+    }
+
     public function remove($model)
     {
         if (!$model instanceof Model) {
             $model = $this->find($model);
         }
-
-        // Check if has relations
-        // foreach ($model->getDefinedRelations() as $relation) {
-        //     if ($model->$relation()->count()) {
-        //         throw new CantDeleteModelException(__("messages.responses.Can not delete, model has related records"));
-        //     }
-        // }
 
         return $model->delete();
     }

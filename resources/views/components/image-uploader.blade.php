@@ -14,36 +14,47 @@
 
     FilePond.registerPlugin(FilePondPluginImagePreview);
 
-    let serverConfig ={
-            load:'/',
-            process: {
-                url: '/ajax/upload-image',
-                withCredentials: true,
-                headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}'}
-            },
-            remove: (source, load, error) => {
-                console.log(source, 'source');
-                $.ajax({
-                    method:'POST',
-                    url: "{{ route('ajax.deleteImage') }}",
-                    headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}' },
-                    data: {image: source},
-                    success: function (response) {
-                        toast.fire({
-                        icon: 'success',
-                        title: response.message
-                        });
-                        load();
-                    },
-                    error: function (error) {
-                        toast.fire({
-                        icon: 'error',
-                        title: error.responseJSON.message
-                        });
+    const successToast = (response) => {
+                            toast.fire({
+                            icon: 'success',
+                            title: response.message ?? "@lang('main.image_uploaded')"
+                            });
+                        }
+
+    const errorToast = (error) => {
+                            toast.fire({
+                            icon: 'error',
+                            title: error.responseJSON.message ?? "@lang('main.error_happened')"
+                            });
+                        }
+
+    const removeImage = (source, load, error) => {
+                            $.ajax({
+                            method:'POST',
+                            url: "{{ route('ajax.deleteImage') }}",
+                            headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}' },
+                            data: {image: source},
+                            success: function (response) {
+                            successToast(response);
+                            load();
+                            },
+                            error: function (error) {
+                            errorToast(error);
+                            }
+                            });
+                        }
+
+    let serverConfig = {
+                        load:'/',
+                        process: {
+                            url: '/ajax/upload-image',
+                            withCredentials: true,
+                            headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}'},
+                            onload: successToast,
+                            onerror: errorToast
+                        },
+                        remove: removeImage
                     }
-                });
-            }
-    }
 
     let pondConfig = {
         allowMultiple: true,

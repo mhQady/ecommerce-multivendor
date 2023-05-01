@@ -23,8 +23,6 @@ class BrandController extends Controller
     {
         $brands = $this->brandRepo->findAll(pagination: 3);
 
-        // return $brands;
-
         return view('vendor.brands.index', compact('brands'));
     }
 
@@ -33,10 +31,9 @@ class BrandController extends Controller
         return view('vendor.brands.create');
     }
 
-
     public function store(BrandRequest $request): RedirectResponse
     {
-        $brand = Brand::create($request->validated());
+        $brand = $this->brandRepo->create($request->validated());
 
         TempUploader::reAssignMedia($brand, $request->image);
 
@@ -46,15 +43,12 @@ class BrandController extends Controller
     }
 
 
-    public function edit(Brand $brand)
+    public function edit(Brand $brand): View
     {
         return view('vendor.brands.edit', compact('brand'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateBrandRequest $request, Brand $brand)
+    public function update(BrandRequest $request, Brand $brand)
     {
         //
     }

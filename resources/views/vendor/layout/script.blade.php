@@ -8,7 +8,6 @@
 <!-- Kanban scripts -->
 <script src="{{asset('dashboard/js/plugins/dragula/dragula.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/jkanban/jkanban.js')}}"></script>
-<script src="{{asset('dashboard/js/plugins/orbit-controls.js')}}"></script>
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

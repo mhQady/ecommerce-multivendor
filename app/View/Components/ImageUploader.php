@@ -5,7 +5,6 @@ namespace App\View\Components;
 use Closure;
 use App\Models\TempUploader;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;

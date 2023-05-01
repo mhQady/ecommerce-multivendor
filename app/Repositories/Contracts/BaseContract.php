@@ -22,6 +22,7 @@ interface BaseContract
         int $numberElements = 0,
         array $condition = ['key' => null, 'value' => null],
     );
+    public function create(array $attributes = []);
     public function remove(Model $model);
     public function find(int $id, array $relations = []);
 }
