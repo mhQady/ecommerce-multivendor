@@ -22,6 +22,6 @@ Route::middleware(['auth:vendor', 'blocked'])->group(function () {
     Route::post('/stores/store', [StoreController::class, 'store'])->name('stores.store');
 
     Route::prefix('products')->group(function () {
-        Route::resource('brands', BrandController::class);
+        Route::resource('brands', BrandController::class)->except(['show']);
     });
 });

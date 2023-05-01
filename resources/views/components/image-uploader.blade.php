@@ -11,6 +11,7 @@
 <script src="{{asset('dashboard/js/plugins/filepond/filepond.min.js')}}"></script>
 <script>
     const pondElement = document.querySelector('input.pond-input[type="file"]');
+    FilePond.registerPlugin(FilePondPluginImagePreview);
 
     let serverConfig ={
             load:'/',
@@ -19,7 +20,7 @@
                 withCredentials: true,
                 headers:{
                 'X-CSRF-TOKEN':'{{ csrf_token() }}',
-                },
+                }
             },
     }
 
@@ -33,11 +34,33 @@
         maxFiles: {{ $maxFiles }},
     };
 
+    if( {{ $isEditPage }} === true ){
+
+        serverConfig.process.ondata = (formData) => {
+                    formData.append('name', '{{$name}}')
+                    formData.append('model_id', '{{$model?->id}}')
+                    formData.append('model_type', '{{ is_object($model) ? class_basename(get_class($model)) : ""}}')
+                    return formData
+                }
+    }
+
     if( !{{ $isStoredAsFile }} ){
         pondConfig.server = serverConfig;
     }
 
-    FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.create(pondElement, pondConfig);
+
+    const pond =  FilePond.create(pondElement, pondConfig);
+
+    if( !'{{ empty($files) }}'  ){
+
+        let files  = {!! $filesUrls !!};
+
+        files =  files.map((file)=> {
+            return { source: file, options: { type: 'local'}}
+        });
+
+        pond.addFiles(files);
+    }
+
 </script>
 @endpush

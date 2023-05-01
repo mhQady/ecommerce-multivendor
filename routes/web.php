@@ -20,5 +20,5 @@ Route::get('/lang/{lang}', LanguageController::class)->name('switchLang');
 Route::prefix('ajax')->name('ajax.')->group(function () {
     Route::post('countries/related-cities', [CountryController::class, 'relatedCities'])->name('relatedCities');
 
-    Route::post('upload-image', [ImageUploader::class, 'uploadImage'])->name('uploadImage');
+    Route::post('upload-image/{model?}', [ImageUploader::class, 'uploadImage'])->name('uploadImage');
 });

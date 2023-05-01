@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Vendor;
 
 use App\Models\Brand;
+use App\Models\TempUploader;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use App\Repositories\SQL\BrandRepository;
 use App\Http\Requests\Vendor\BrandRequest;
 use App\Repositories\Contracts\BrandContract;
@@ -31,38 +33,22 @@ class BrandController extends Controller
         return view('vendor.brands.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(BrandRequest $request)
+
+    public function store(BrandRequest $request): RedirectResponse
     {
         $brand = Brand::create($request->validated());
 
-        $media = Media::find($request->image);
-
-        $brand->addMedia($media->getPath())->toMediaCollection('main');
-
-        $media->delete();
+        TempUploader::reAssignMedia($brand, $request->image);
 
         toast(__('main.created.brand'), 'success');
 
         return to_route('vendor.brands.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Brand $brand)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Brand $brand)
     {
-        //
+        return view('vendor.brands.edit', compact('brand'));
     }
 
     /**

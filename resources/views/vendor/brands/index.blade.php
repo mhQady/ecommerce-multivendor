@@ -40,13 +40,8 @@
                                     {{$brand->created_at->format('Y-m-d')}}
                                 </td>
                                 <td class="text-sm">
-                                    <div class="d-flex justify-content-end">
-                                        <a href="javascript:;" data-bs-toggle="tooltip"
-                                            data-bs-original-title="Preview product">
-                                            <i class="fas fa-eye text-secondary"></i>
-                                        </a>
-                                        <a href="javascript:;" class="mx-3" data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit product">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <a href="{{ route('vendor.brands.edit', $brand->id) }}">
                                             <i class="fas fa-user-edit text-secondary"></i>
                                         </a>
                                         <a href="javascript:;"

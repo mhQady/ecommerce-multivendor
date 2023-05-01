@@ -30,11 +30,15 @@ class StoreController extends Controller
      */
     public function store(StoreStoreRequest $request)
     {
-        // return $request->validated();
-        $store = Store::create($request->validated());
+        DB::transaction(function () use ($request) {
 
-        $store->address()->create($request->validated()['address']);
-        // $store->addMedia($request->file('logo'))->toMediaCollection('logo');
+            $store = Store::create($request->validated());
+
+            $store->address()->create($request->validated()['address']);
+
+            $store->addMedia($request->file('logo'))->toMediaCollection('logo');
+
+        });
 
         return back();
     }

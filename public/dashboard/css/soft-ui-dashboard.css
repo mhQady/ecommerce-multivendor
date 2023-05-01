@@ -20216,6 +20216,7 @@ fieldset:disabled .btn {
     height: 48px;
     width: 48px;
     transition: all .2s ease-in-out;
+    object-fit: cover;
 }
 
 .avatar img {

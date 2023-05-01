@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->foreignId('vendor_id')->constrained('vendors')->onDelete('cascade');
             $table->string('business_name');
             $table->text('description')->nullable();
-            $table->string('logo')->nullable();
             $table->string('website')->nullable();
             $table->timestamps();
         });

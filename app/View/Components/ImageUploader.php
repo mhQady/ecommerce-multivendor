@@ -2,12 +2,13 @@
 
 namespace App\View\Components;
 
-use App\Models\TempUploader;
 use Closure;
+use App\Models\TempUploader;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Collection;
 
 class ImageUploader extends Component
 {
@@ -20,7 +21,9 @@ class ImageUploader extends Component
         string $required = 'false',
         string $disabled = 'false',
         string $storeAsFile = 'false',
+        public array|Collection $files = [],
         public string $maxFiles = 'null',
+        public Model|null $model = null
     ) {
         $this->required = $required;
         $this->disabled = $disabled;
@@ -49,8 +52,29 @@ class ImageUploader extends Component
         return $this->storeAsFile === 'false' ? 'false' : 'true';
     }
 
-    public function uploadImage(Request $request)
+    public function isEditPage(): string
     {
-        return TempUploader::uploadImage($request, $this->name);
+        return is_null($this->model) ? 'false' : 'true';
+    }
+
+    public function filesUrls()
+    {
+        if (count($this->files)) {
+            $collection = $this->files;
+
+            if (is_array($this->files)) {
+                $collection = collect($this->files);
+            }
+
+            return $collection->map(function ($file) {
+                return str_replace(url('/'), '', $file->getUrl());
+            });
+        }
+        return collect([]);
+    }
+
+    public function uploadImage()
+    {
+        return TempUploader::uploadImage(name: $this->name);
     }
 }
