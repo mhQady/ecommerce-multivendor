@@ -30,4 +30,14 @@ class Brand extends Model implements HasMedia
     {
         return $this->getFirstMediaUrl('main', $type) ? $this->getFirstMediaUrl('main', $type) : asset('dashboard/img/defaults/brand.svg');
     }
+
+    public function scopeSimpleSearch($query, $search)
+    {
+        $query->where('name->en', 'LIKE', '%' . $search . '%')
+            ->orWhere('name->ar', 'LIKE', '%' . $search . '%');
+    }
+    public function scopeFilter($query)
+    {
+        $query->when(request('search'), fn($q) => $q->simpleSearch(request('search')));
+    }
 }

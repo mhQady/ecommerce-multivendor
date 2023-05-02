@@ -21,7 +21,7 @@ class BrandController extends Controller
     }
     public function index(): View
     {
-        $brands = $this->brandRepo->findAll(pagination: 3);
+        $brands = $this->brandRepo->findAll(pagination: 3, applyFilter: true);
 
         return view('vendor.brands.index', compact('brands'));
     }

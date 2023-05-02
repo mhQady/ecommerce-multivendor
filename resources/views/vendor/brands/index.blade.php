@@ -12,6 +12,9 @@
                     </a>
                 </div>
             </div>
+            <div class="card-header pb-0">
+                <x-search :placeholder="__('main.search.brand')" />
+            </div>
             <div class="card-body px-0 pb-0">
                 <div class="table-responsive">
                     <table class="table table-flush" id="brands-list">
@@ -68,8 +71,8 @@
 <script src="{{asset('dashboard/js/plugins/datatables.js')}}"></script>
 <script>
     new simpleDatatables.DataTable("#brands-list", {
-       searchable: false,
-        "paging": false
+            searchable: false,
+            "paging": false
         })
 </script>
 @endpush
