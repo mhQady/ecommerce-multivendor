@@ -37,7 +37,7 @@
                                 </td>
 
                                 <td class="text-sm">
-                                    {{$brand->created_at->format('Y-m-d')}}
+                                    {{$brand->created_at}}
                                 </td>
                                 <td class="text-sm">
                                     <div class="d-flex justify-content-end gap-2">

@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Contracts;
 
+use Illuminate\Database\Eloquent\Model;
+
 
 interface BaseContract
 {
@@ -23,6 +25,7 @@ interface BaseContract
         array $condition = ['key' => null, 'value' => null],
     );
     public function create(array $attributes = []);
+    public function update(Model $model, array $attributes = []);
     public function remove(Model $model);
     public function find(int $id, array $relations = []);
 }

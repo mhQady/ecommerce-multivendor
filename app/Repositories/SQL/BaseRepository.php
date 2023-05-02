@@ -81,7 +81,11 @@ abstract class BaseRepository implements BaseContract
 
     public function create(array $attributes = [])
     {
-        $this->model->create($attributes);
+        return $this->model->create($attributes);
+    }
+    public function update(Model $model, array $attributes = [])
+    {
+        return $this->model->update($attributes);
     }
 
     public function remove($model)

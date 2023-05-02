@@ -42,7 +42,6 @@ class BrandController extends Controller
         return to_route('vendor.brands.index');
     }
 
-
     public function edit(Brand $brand): View
     {
         return view('vendor.brands.edit', compact('brand'));
@@ -50,12 +49,13 @@ class BrandController extends Controller
 
     public function update(BrandRequest $request, Brand $brand)
     {
-        //
+        $this->brandRepo->update($brand, $request->validated());
+
+        toast(__('main.updated.brand'), 'success');
+
+        return to_route('vendor.brands.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Brand $brand)
     {
         $this->brandRepo->remove($brand);
