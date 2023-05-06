@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Vendor\HomeController;
 use App\Http\Controllers\Vendor\BrandController;
 use App\Http\Controllers\Vendor\StoreController;
+use App\Http\Controllers\Vendor\ProductController;
 use App\Http\Controllers\Vendor\Auth\LoginController;
 use App\Http\Controllers\Vendor\Auth\RegisterController;
 
@@ -21,6 +22,7 @@ Route::middleware(['auth:vendor', 'blocked'])->group(function () {
 
     Route::post('/stores/store', [StoreController::class, 'store'])->name('stores.store');
 
+    Route::resource('products', ProductController::class)->except(['show']);
     Route::prefix('products')->group(function () {
         Route::resource('brands', BrandController::class)->except(['show']);
     });

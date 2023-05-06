@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
             TempUploaderSeeder::class,
             CountrySeeder::class,
             CitySeeder::class,
-            BrandSeeder::class,
             VendorSeeder::class,
+            BrandSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }

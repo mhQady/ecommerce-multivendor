@@ -37,7 +37,8 @@ return new class extends Migration {
             // $table->json('meta')->nullable();
             // $table->json('custom_fields')->nullable();
 
-            // $table->foreignId('brand_id')->nullable()->constrained('brands')->nullOnDelete();
+            $table->foreignId('vendor_id')->constrained('vendors')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('brand_id')->nullable()->constrained('brands')->nullOnDelete();
 
             // $table->unsignedBigInteger('discount_id')->nullable();
             // $table->foreign('discount_id')->references('id')->on('discounts');

@@ -94,4 +94,8 @@ return [
         0 => 'العربية',
         'name' => 'Name AR'
     ],
+    'published' => 'Published',
+    'drafted' => 'Drafted',
+    'physical' => 'Physical',
+    'digital' => 'Digital',
 ];
