@@ -1,3 +1,5 @@
+@extends('vendor.layout.app-headless')
+@section('content')
 <div class="row">
     <div class="col-12 text-center">
         <h3 class="mt-5">@lang('main.add_store_info')</h3>
@@ -256,6 +258,7 @@
         </div>
     </div>
 </div>
+@endsection
 @push('script')
 <script src="{{asset('dashboard/js/plugins/multistep-form.js')}}"></script>
 @endpush

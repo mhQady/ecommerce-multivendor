@@ -1,18 +1,14 @@
-@extends('vendor.layout.app')
-@section('content')
-
-{{-- not approved account --}}
 @if(!(auth()->guard('vendor')->user()->is_approved))
-<div class="alert alert-info text-white text-center" role="alert">
-    <strong>@lang('main.info')</strong> @lang('main.account_not_approved')
-</div>
+{{-- not approved account --}}
+@include('vendor.home.info')
 @else
 
-{{-- add new store --}}
 @if(is_null(auth()->guard('vendor')->user()->store))
+{{-- account approved but not have store --}}
 @include('vendor.home.create-new-store')
+@else
+{{-- account approved & have store --}}
+@include('vendor.home.main')
 @endif
 
-
 @endif
-@endsection

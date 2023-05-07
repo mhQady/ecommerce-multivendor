@@ -22,4 +22,5 @@
     <link href="{{asset('dashboard/css/nucleo-svg.css')}}" rel="stylesheet" />
 
     <link id="pagestyle" href="{{asset('dashboard/css/soft-ui-dashboard.css?v=1.1.1')}}" rel="stylesheet" />
+    @stack('style')
 </head>
