@@ -6,8 +6,14 @@ export default defineConfig({
     plugins: [
         vue(),
         laravel({
-            input: ['resources/js/apps/create-product.js'],
+            input: ['resources/apps/create-product.js'],
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+            '@': '/resources',
+            '@apps': '/resources/apps',
+        }
+    },
 });

@@ -1,8 +1,8 @@
 @extends('vendor.layout.app')
 @section('title',__('main.create.brand'))
 @section('content')
-
-<form method="post" action="{{ route('vendor.brands.store') }}" enctype="multipart/form-data">
+<div id="app"></div>
+{{-- <form method="post" action="{{ route('vendor.brands.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-12 d-flex justify-content-end">
@@ -15,9 +15,9 @@
                 </div>
                 <div class="card-body">
                     <div class="row align-items-center">
-                        {{-- <div class="col-4">
+                        <div class="col-4">
                             <x-image-uploader />
-                        </div> --}}
+                        </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label>@lang('main.en.name')</label>
@@ -80,9 +80,10 @@
             </div>
         </div>
     </div>
-</form>
+</form> --}}
 @endsection
 @push('script')
+@vite('resources/apps/create-product.js')
 <script>
     function generateEnSlug(e){
         document.getElementsByName('slug[en]')[0].value = convertToSlug(e.target.value)
