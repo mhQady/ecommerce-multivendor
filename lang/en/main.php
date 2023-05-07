@@ -88,11 +88,13 @@ return [
     'account_suspended' => 'Your account is suspended. Please contact us for more info.',
     'en' => [
         0 => 'English',
-        'name' => 'Name EN'
+        'name' => 'Name EN',
+        'slug' => 'Slug EN',
     ],
     'ar' => [
         0 => 'العربية',
-        'name' => 'Name AR'
+        'name' => 'Name AR',
+        'slug' => 'Slug EN',
     ],
     'published' => 'Published',
     'drafted' => 'Drafted',
