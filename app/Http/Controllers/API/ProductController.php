@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Enums\Product\ProductType;
 use App\Enums\Product\ProductStatus;
 use App\Http\Controllers\Controller;
 
 class productController extends Controller
 {
-    public function getStatusesList(): \Illuminate\Http\JsonResponse
+    public function getStatusesList()
     {
         return response()->json([
-            'data' => ProductStatus::cases(),
+            'data' => ProductStatus::casesArray(),
+        ]);
+    }
+
+    public function getTypesList()
+    {
+        return response()->json([
+            'data' => ProductType::casesArray(),
         ]);
     }
 }

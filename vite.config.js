@@ -14,6 +14,7 @@ export default defineConfig({
         alias: {
             '@': '/resources',
             '@apps': '/resources/apps',
+            '@components': '/resources/components',
         }
     },
 });

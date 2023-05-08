@@ -4,6 +4,17 @@ namespace App\Enums;
 
 trait BaseEnum
 {
+
+    public static function casesArray(): array
+    {
+        $result = [];
+
+        foreach (self::cases() as $case) {
+            $result[strtolower($case->name)] = $case->value;
+        }
+
+        return $result;
+    }
     public static function values(): array
     {
         return array_column(self::cases(), 'value');
