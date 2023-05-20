@@ -1,4 +1,4 @@
-@extends('vendor.layout.app')
+@extends('admin.layout.app')
 @section('title',__('main.brands'))
 @section('content')
 <div class="row">
@@ -7,7 +7,7 @@
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">@lang('main.brands')</h5>
-                    <a href="{{route('vendor.brands.create')}}" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp;
+                    <a href="{{route('admin.brands.create')}}" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp;
                         @lang('main.create.brand')
                     </a>
                 </div>
@@ -34,17 +34,16 @@
                                         <h6 class="mb-0">{{$brand->name}}</h6>
                                     </div>
                                 </td>
-
                                 <td class="text-sm">
                                     {{$brand->created_at}}
                                 </td>
                                 <td class="text-sm">
                                     <div class="d-flex justify-content-end gap-2">
-                                        <a href="{{ route('vendor.brands.edit', $brand->id) }}">
+                                        <a href="{{ route('admin.brands.edit', $brand->id) }}">
                                             <i class="fas fa-user-edit text-secondary"></i>
                                         </a>
                                         <a href="javascript:;"
-                                            onclick="deleteRecord('{{ route('vendor.brands.destroy', $brand->id) }}')">
+                                            onclick="deleteRecord('{{ route('admin.brands.destroy', $brand->id) }}')">
                                             <i class="fas fa-trash text-danger"></i>
                                         </a>
                                     </div>

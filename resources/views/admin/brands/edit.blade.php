@@ -1,8 +1,8 @@
-@extends('vendor.layout.app')
+@extends('admin.layout.app')
 @section('title',$brand->name)
 @section('content')
 
-<form method="post" action="{{ route('vendor.brands.update',$brand->id) }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('admin.brands.update',$brand->id) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="row">

@@ -78,6 +78,32 @@
                 </div>
             </li>
             @endcan
+            @can('browse brand')
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#productsNav" @class(['nav-link', 'active'=>
+                    request()->is('*admin/products*')])
+                    aria-controls="productsNav" role="button"
+                    aria-expanded="{{request()->is('*admin/products*') ? 'true' : 'false'}}">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+                        <i class="fa-solid fa-shop"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">@lang('main.products')</span>
+                </a>
+                <div @class(['collapse', 'show'=> request()->is('*admin/products*')])
+                    id="productsNav">
+                    <ul class="nav ms-4 ps-3">
+                        <li @class(['nav-item', 'active'=> request()->routeIs('admin.brands.*')])>
+                            <a @class(['nav-link', 'active'=> request()->routeIs('admin.brands.*')])
+                                href="{{route('admin.brands.index')}}">
+                                <span class="sidenav-mini-icon"> B </span>
+                                <span class="sidenav-normal"> @lang('main.brands') </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            @endcan
             {{-- <li class="nav-item mt-3">
                 <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">PAGES</h6>
             </li>

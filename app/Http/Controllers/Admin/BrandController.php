@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Vendor;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
 use App\Models\TempUploader;
@@ -23,12 +23,12 @@ class BrandController extends Controller
     {
         $brands = $this->brandRepo->findAll(pagination: 25, applyFilter: true);
 
-        return view('vendor.brands.index', compact('brands'));
+        return view('admin.brands.index', compact('brands'));
     }
 
     public function create(): View
     {
-        return view('vendor.brands.create');
+        return view('admin.brands.create');
     }
 
     public function store(BrandRequest $request): RedirectResponse
@@ -39,12 +39,12 @@ class BrandController extends Controller
 
         toast(__('main.created.brand'), 'success');
 
-        return to_route('vendor.brands.index');
+        return to_route('admin.brands.index');
     }
 
     public function edit(Brand $brand): View
     {
-        return view('vendor.brands.edit', compact('brand'));
+        return view('admin.brands.edit', compact('brand'));
     }
 
     public function update(BrandRequest $request, Brand $brand)
@@ -53,7 +53,7 @@ class BrandController extends Controller
 
         toast(__('main.updated.brand'), 'success');
 
-        return to_route('vendor.brands.index');
+        return to_route('admin.brands.index');
     }
 
     public function destroy(Brand $brand)
@@ -62,6 +62,6 @@ class BrandController extends Controller
 
         toast(__('main.deleted.brand'), 'success');
 
-        return to_route('vendor.brands.index');
+        return to_route('admin.brands.index');
     }
 }

@@ -1,8 +1,8 @@
-@extends('vendor.layout.app')
+@extends('admin.layout.app')
 @section('title',__('main.create.brand'))
 @section('content')
 
-<form method="post" action="{{ route('vendor.brands.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('admin.brands.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-12 d-flex justify-content-end">

@@ -12,6 +12,16 @@ class VendorSeeder extends Seeder
      */
     public function run(): void
     {
+        Vendor::create([
+            'name' => 'VendorName',
+            'email' => 'vendor@vendor.com',
+            'phone' => '0123456789',
+            'password' => 'password',
+            'is_approved' => 1,
+            'is_active' => 1,
+
+        ]);
+
         Vendor::factory(3)->create();
     }
 }
