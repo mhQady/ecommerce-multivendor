@@ -3,45 +3,49 @@ import { ref, onMounted, defineProps } from 'vue';
 import Choices from 'choices.js';
 
 const props = defineProps({
-   'dataUrl': String,
-   'selectedValue': {
-      type: Number,
-      default: 1,
-   }
+    'dataUrl': String,
+    'selectedValue': {
+        type: Number,
+        default: 1,
+    },
+    'searchEnabled': {
+        type: Boolean,
+        default: true,
+    }
 });
-const emits = defineEmits(['selected'])
+const emits = defineEmits([ 'selected' ])
 
 const selectorEle = ref(null);
 
 onMounted(() => {
 
-   const choices = new Choices(selectorEle.value, {
-      searchEnabled: true,
-      itemSelectText: "@lang('main.press_to_select')",
-      shouldSort: false,
-      searchPlaceholderValue: "@lang('main.type_to_search')",
-   });
+    const choices = new Choices(selectorEle.value, {
+        searchEnabled: props.searchEnabled,
+        itemSelectText: "@lang('main.press_to_select')",
+        shouldSort: false,
+        searchPlaceholderValue: "@lang('main.type_to_search')",
+    });
 
-   axios.get(props.dataUrl).then(response => {
-      const resp = response.data.data
+    axios.get(props.dataUrl).then(response => {
+        const resp = response.data.data
 
-      let statusOptions = []
+        let statusOptions = []
 
-      for (let key in resp) {
-         statusOptions.push({ value: resp[key], 'label': key, selected: resp[key] === props.selectedValue });
-      }
+        for (let key in resp) {
+            statusOptions.push({ value: resp[ key ], 'label': key, selected: resp[ key ] === props.selectedValue });
+        }
 
-      choices.clearChoices();
-      choices.setChoices(statusOptions);
-   });
+        choices.clearChoices();
+        choices.setChoices(statusOptions);
+    });
 
-   choices.passedElement.element.addEventListener('change', (e) => {
-      emits('selected', e.target.value)
-   })
+    choices.passedElement.element.addEventListener('change', (e) => {
+        emits('selected', e.target.value)
+    })
 
 });
 </script>
 
 <template>
-   <select class="form-control" ref="selectorEle"></select>
+    <select class="form-control" ref="selectorEle"></select>
 </template>

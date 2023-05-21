@@ -4,13 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
 use App\Models\TempUploader;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Repositories\SQL\BrandRepository;
 use App\Http\Requests\Vendor\BrandRequest;
 use App\Repositories\Contracts\BrandContract;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BrandController extends Controller
 {
@@ -33,9 +32,12 @@ class BrandController extends Controller
 
     public function store(BrandRequest $request): RedirectResponse
     {
-        $brand = $this->brandRepo->create($request->validated());
+        DB::transaction(function () use ($request) {
 
-        TempUploader::reAssignMedia($brand, $request->image);
+            $brand = $this->brandRepo->create($request->validated());
+
+            TempUploader::reAssignMedia($brand, $request->image);
+        });
 
         toast(__('main.created.brand'), 'success');
 

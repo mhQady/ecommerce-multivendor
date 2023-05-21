@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Vendor\HomeController;
-use App\Http\Controllers\Vendor\BrandController;
 use App\Http\Controllers\Vendor\StoreController;
 use App\Http\Controllers\Vendor\ProductController;
 use App\Http\Controllers\Vendor\Auth\LoginController;

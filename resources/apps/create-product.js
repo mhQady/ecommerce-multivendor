@@ -2,7 +2,7 @@ import '@/js/bootstrap.js';
 
 import { createApp } from 'vue';
 
-import App from '@apps/product/App.vue';
+import CreateProductApp from '@apps/product/CreateProductApp.vue';
 
 
-createApp(App).mount('#app');
+createApp(CreateProductApp).mount('#app');

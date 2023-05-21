@@ -1,5 +1,5 @@
 <div>
-    <input type="file" class="pond-input" name="{{$name}}" id="">
+    <input type="file" class="pond-input" name="{{$name}}">
 </div>
 @push('style')
 <link href="{{asset('dashboard/js/plugins/filepond/filepond.min.css')}}" rel="stylesheet">
@@ -50,7 +50,7 @@
                             url: '/ajax/upload-image',
                             withCredentials: true,
                             headers:{ 'X-CSRF-TOKEN':'{{ csrf_token() }}'},
-                            onload: successToast,
+                            // onload: successToast,
                             onerror: errorToast
                         },
                         remove: removeImage

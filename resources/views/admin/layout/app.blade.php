@@ -9,11 +9,10 @@
 
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
             @include('admin.layout.navbar')
-            <div class="container-fluid py-4">
+            <div class="container-fluid py-4 min-vh-80">
                 @yield('content')
-
-                @include('admin.layout.footer')
             </div>
+            @include('admin.layout.footer')
         </main>
 
         @include('admin.layout.fixed-plugin')
