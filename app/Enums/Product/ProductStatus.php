@@ -18,8 +18,8 @@ enum ProductStatus: int
     public static function badgesArray(): array
     {
         return [
-            self::PUBLISHED->value => ['icon' => 'ni-check-bold', 'class' => 'btn-outline-success', 'name' => __('main.published')],
-            self::DRAFTED->value => ['icon' => 'ni-archive-2', 'class' => 'btn-outline-secondary', 'name' => __('main.drafted')],
+            self::PUBLISHED->value => ['class' => 'badge badge-sm badge-success', 'name' => __('main.published')],
+            self::DRAFTED->value => ['class' => 'badge badge-secondary', 'name' => __('main.drafted')],
         ];
     }
 

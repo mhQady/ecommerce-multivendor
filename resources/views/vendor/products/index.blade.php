@@ -21,6 +21,8 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>@lang('main.name')</th>
+                                <th>@lang('main.status')</th>
+                                <th>@lang('main.type')</th>
                                 <th>@lang('main.created_at')</th>
                                 <th data-sortable="false"></th>
                             </tr>
@@ -35,9 +37,14 @@
                                         <h6 class="mb-0">{{ $product->name }}</h6>
                                     </div>
                                 </td>
-
                                 <td class="text-sm">
-                                    {{$product->created_at}}
+                                    {!! \App\Enums\Product\ProductStatus::badge($product->status) !!}
+                                </td>
+                                <td class="text-sm">
+                                    {!! \App\Enums\Product\ProductType::badge($product->type) !!}
+                                </td>
+                                <td class="text-sm">
+                                    {{$product->created_at->toDateString()}}
                                 </td>
                                 <td class="text-sm">
                                     <div class="d-flex justify-content-end gap-2">

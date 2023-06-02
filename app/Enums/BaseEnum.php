@@ -42,7 +42,7 @@ trait BaseEnum
         return collect(self::cases())->map(function ($status) {
             return [
                 'value' => $status->value,
-                'label' => $status->name
+                'label' => strtolower($status->name),
             ];
         });
     }

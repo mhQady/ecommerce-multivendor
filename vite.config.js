@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [
         vue(),
         laravel({
-            input: ['resources/apps/create-product.js'],
+            input: [ 'resources/js/app.js' ],
             refresh: true,
         }),
     ],

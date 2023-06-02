@@ -1,5 +1,6 @@
 <script setup>
-import { ref, } from 'vue';
+import { ref } from 'vue';
+import { Form, Field } from 'vee-validate';
 import ChoicesSelector from '@/components/ChoicesSelector.vue';
 
 const payload = ref({
@@ -13,6 +14,10 @@ const payload = ref({
     },
     status: 1,
     type: 1,
+    description: {
+        en: '',
+        ar: '',
+    }
 })
 
 
@@ -26,10 +31,14 @@ function generateSlug(event, type) {
 
     payload.value.slug[ type ] = text
 }
+
+function onSubmit(values) {
+    console.log(values);
+}
 </script>
 <template>
     {{ payload }}
-    <form method="post" action="{{ route('vendor.brands.store') }}" enctype="multipart/form-data">
+    <Form method="post" action="" enctype="multipart/form-data" @submit="onSubmit">
         <div class="row">
             <div class="col-12 d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary mb-0">@lang('main.save')</button>
@@ -48,23 +57,39 @@ function generateSlug(event, type) {
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>@lang('main.en.name')</label>
-                                    <input class="form-control" type="text" @keyup="generateSlug($event, 'en')"
-                                        v-model="payload.name.en" />
+                                    <Field class="form-control" type="text" name="name[en]"
+                                        @keyup="generateSlug($event, 'en')" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>@lang('main.ar.name')</label>
                                     <input class="form-control" type="text" @keyup="generateSlug($event, 'ar')"
-                                        v-model="payload.name.ar" />
+                                        name="name[ar]" />
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label>@lang('main.type')</label>
-                                <ChoicesSelector data-url="/products/types" :selected-value="payload.type"
-                                    @selected="(type) => payload.type = type" :searchEnabled="false" />
+                                <div class="form-group">
+                                    <label>@lang('main.type')</label>
+                                    <ChoicesSelector data-url="/products/types" :selected-value="payload.type"
+                                        @selected="(type) => payload.type = type" :searchEnabled="false" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>@lang('main.en.description')</label>
+                                    <textarea class="form-control" v-model="payload.description.en"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>@lang('main.ar.description')</label>
+                                    <textarea class="form-control" v-model="payload.description.ar"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,5 +116,5 @@ function generateSlug(event, type) {
                 </div>
             </div>
         </div>
-    </form>
+    </Form>
 </template>

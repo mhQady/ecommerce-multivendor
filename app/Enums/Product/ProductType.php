@@ -18,8 +18,8 @@ enum ProductType: int
     public static function badgesArray(): array
     {
         return [
-            self::PHYSICAL->value => ['class' => 'badge badge-secondary', 'name' => __('main.physical')],
-            self::DIGITAL->value => ['class' => 'badge badge-info', 'name' => __('main.digital')],
+            self::PHYSICAL->value => ['class' => 'badge badge-sm badge-secondary', 'name' => __('main.physical')],
+            self::DIGITAL->value => ['class' => 'badge badge-sm badge-info', 'name' => __('main.digital')],
         ];
     }
 

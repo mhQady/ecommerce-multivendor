@@ -100,4 +100,6 @@ return [
     'drafted' => 'Drafted',
     'physical' => 'Physical',
     'digital' => 'Digital',
+    'type' => 'Type',
+    'status' => 'Status',
 ];

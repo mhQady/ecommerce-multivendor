@@ -4,17 +4,23 @@ namespace App\Http\Controllers\Vendor;
 
 use App\Models\Product;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\Vendor\Product\StoreProductRequest;
+use App\Http\Requests\Vendor\Product\UpdateProductRequest;
+use App\Repositories\Contracts\ProductContract;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct(protected ProductContract $productRepo)
+    {
+    }
     public function index()
     {
-        $products = Product::paginate();
+        $products = $this->productRepo->findAll(
+            pagination: 25,
+            applyFilter: true,
+            condition: ['key' => 'vendor_id', 'value' => auth('vendor')->id()]
+        );
+
         return view('vendor.products.index', get_defined_vars());
     }
 
@@ -31,7 +37,11 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $this->productRepo->create($request->validated());
+
+        toast(__('main.created.product'), 'success');
+
+        return to_route('vendor.products.index');
     }
 
 

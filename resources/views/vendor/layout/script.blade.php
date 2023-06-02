@@ -22,7 +22,7 @@
 <script>
     const toast = Swal.mixin({
         toast: true,
-        position: "{{ app()->getLocale()=='ar'?'top-start':'top-end' }}",
+        position: "{{ app()->getLocale()=='ar'?'top-end':'top-start' }}",
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
@@ -34,5 +34,5 @@
 </script>
 @include('sweetalert::alert')
 <script src="{{asset('dashboard/js/soft-ui-dashboard.min.js?v=1.1.1')}}"></script>
-
+@vite('resources/apps/create-product.js')
 @stack('script')

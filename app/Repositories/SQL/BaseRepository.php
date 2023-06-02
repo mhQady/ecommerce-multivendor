@@ -31,10 +31,14 @@ abstract class BaseRepository implements BaseContract
         int $numberElements = 0,
         array $condition = ['key' => null, 'value' => null],
     ) {
-        $query = $this->model;
+        $query = $this->model->query();
 
         if ($applyOrder) {
             $query = $query->orderBy($orderBy, $orderDir);
+        }
+
+        if ($condition['key']) {
+            $query = $query->where($condition['key'], $condition['value']);
         }
 
         if ($applyFilter) {
@@ -47,10 +51,6 @@ abstract class BaseRepository implements BaseContract
 
         if ($doesntHave) {
             $query = $query->doesntHave($doesntHave);
-        }
-
-        if ($condition['key']) {
-            $query = $query->where($condition['key'], $condition['value']);
         }
 
         if (!empty($relationCount)) {
@@ -95,5 +95,10 @@ abstract class BaseRepository implements BaseContract
         }
 
         return $model->delete();
+    }
+
+    public function where($column, $operator = null, $value = null)
+    {
+        return $this->model->where($column, $operator, $value);
     }
 }

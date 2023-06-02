@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->json('slug');
             $table->tinyInteger('type')->default(1)->comment('1:physical, 2:digital');
             $table->tinyInteger('status')->default(1)->comment('1:published, 2:drafted');
-            $table->string('sku')->nullable();
             $table->json('description')->nullable();
 
             // $table->unsignedFloat('price')->default(0);
