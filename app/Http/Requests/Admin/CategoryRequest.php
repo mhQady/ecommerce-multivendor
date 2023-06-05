@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Vendor;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BrandRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,8 @@ class BrandRequest extends FormRequest
         return [
             'image' => 'nullable',
             'name.*' => 'required|string|max:255',
+            'slug.*' => 'required|string|max:255',
+            'parent_id' => 'nullable|exists:categories,id',
         ];
     }
 }

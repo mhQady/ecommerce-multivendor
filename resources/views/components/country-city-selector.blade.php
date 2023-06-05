@@ -21,7 +21,6 @@
 </div>
 
 @push('script')
-<script src="{{asset('dashboard/js/plugins/choices.min.js')}}"></script>
 <script>
     const choicesOptions =  {
     searchEnabled: true,

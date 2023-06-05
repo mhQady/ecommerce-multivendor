@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 
 
@@ -19,6 +20,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/vendors', VendorController::class);
 
     Route::prefix('products')->group(function () {
+        Route::resource('categories', CategoryController::class)->except(['show']);
         Route::resource('brands', BrandController::class)->except(['show']);
     });
 });

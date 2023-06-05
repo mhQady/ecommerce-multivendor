@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Vendor\Product\StoreProductRequest;
 use App\Http\Requests\Vendor\Product\UpdateProductRequest;
+use App\Repositories\Contracts\BrandContract;
 use App\Repositories\Contracts\ProductContract;
 
 class ProductController extends Controller
@@ -27,9 +28,11 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(BrandContract $brandRepo)
     {
-        return view('vendor.products.create');
+        $brands = $brandRepo->findAll(fields: ['id', 'name']);
+
+        return view('vendor.products.create', get_defined_vars());
     }
 
     /**

@@ -22,6 +22,7 @@ interface BaseContract
         int $pagination = 0,
         bool $applyFilter = false,
         int $numberElements = 0,
+        array $condition = ['key' => null, 'value' => null],
     );
     public function create(array $attributes = []);
     public function update(Model $model, array $attributes = []);

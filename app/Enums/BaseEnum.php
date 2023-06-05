@@ -15,6 +15,7 @@ trait BaseEnum
 
         return $result;
     }
+
     public static function values(): array
     {
         return array_column(self::cases(), 'value');
@@ -27,7 +28,6 @@ trait BaseEnum
 
     public static function badge($value): string
     {
-
         foreach (self::cases() as $case) {
             if ($value == $case->value) {
                 return "<span class='" . self::badgesArray()[$case->value]['class'] . "'>" . self::badgesArray()[$case->value]['name'] . "</span>";

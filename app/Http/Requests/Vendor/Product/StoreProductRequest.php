@@ -29,6 +29,8 @@ class StoreProductRequest extends FormRequest
             'slug.*' => 'required|string|max:255',
             'type' => ['required', Rule::in(ProductStatus::values())],
             'description.*' => 'required|string|max:3000',
+
+            'brand_id' => 'nullable|exists:brands,id',
         ];
     }
 

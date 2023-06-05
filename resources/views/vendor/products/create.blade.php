@@ -10,6 +10,13 @@
         <div class="col-8">
             @include('vendor.products.parts.create.main-info')
         </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    @include('vendor.products.parts.create.select-brand')
+                </div>
+            </div>
+        </div>
     </div>
 </form>
 @endsection

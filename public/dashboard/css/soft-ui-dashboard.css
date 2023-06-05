@@ -37516,3 +37516,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     border-top-right-radius: 0 !important;
     border-top-left-radius: 0;
 }
+
+.select-choices-min-width {
+    min-width: 180px;
+}

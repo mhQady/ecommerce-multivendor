@@ -8,6 +8,7 @@
 <script src="{{asset('dashboard/js/plugins/chartjs.min.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/threejs.js')}}"></script>
 <script src="{{asset('dashboard/js/plugins/orbit-controls.js')}}"></script>
+<script src="{{asset('dashboard/js/plugins/choices.min.js')}}"></script>
 
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");

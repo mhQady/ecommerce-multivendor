@@ -93,6 +93,13 @@
                 <div @class(['collapse', 'show'=> request()->is('*admin/products*')])
                     id="productsNav">
                     <ul class="nav ms-4 ps-3">
+                        <li @class(['nav-item', 'active'=> request()->routeIs('admin.categories.*')])>
+                            <a @class(['nav-link', 'active'=> request()->routeIs('admin.categories.*')])
+                                href="{{route('admin.categories.index')}}">
+                                <span class="sidenav-mini-icon"> C </span>
+                                <span class="sidenav-normal"> @lang('main.categories') </span>
+                            </a>
+                        </li>
                         <li @class(['nav-item', 'active'=> request()->routeIs('admin.brands.*')])>
                             <a @class(['nav-link', 'active'=> request()->routeIs('admin.brands.*')])
                                 href="{{route('admin.brands.index')}}">

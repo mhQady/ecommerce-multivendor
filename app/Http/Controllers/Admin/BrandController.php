@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Vendor\BrandRequest;
+use App\Http\Requests\Admin\BrandRequest;
 use App\Repositories\Contracts\BrandContract;
 
 class BrandController extends Controller

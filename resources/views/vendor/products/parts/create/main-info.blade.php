@@ -158,5 +158,20 @@
         .replace(/\-\-+/g, '-')
         .replace(/^-+/, '').replace(/-+$/, '');
     }
+
+    new Choices(document.getElementById('choices-status'),{
+    searchEnabled: false,
+    itemSelectText: "",
+    shouldSort: false,
+    });
+
+    let typesSelect = document.getElementById('choices-type')
+
+    new Choices( typesSelect,{
+    searchEnabled: false,
+    itemSelectText: "{{ __('main.press_to_select') }}",
+    shouldSort: false,
+    });
+
 </script>
 @endpush

@@ -37,7 +37,6 @@ class ProductFactory extends Factory
             //     'ar' => fake()->sentence(),
             //     'en' => fake()->sentence(),
             // ],
-            'sku' => fake()->numberBetween('111111111', '999999999'),
             'description' => [
                 'ar' => fake()->paragraph(),
                 'en' => fake()->paragraph()
